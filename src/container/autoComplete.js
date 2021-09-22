@@ -26,7 +26,7 @@ const SearchBar = () => {
   useEffect(() => {
     dispatch(fetchProgListSucess());
     
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
