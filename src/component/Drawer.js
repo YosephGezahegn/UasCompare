@@ -1,72 +1,70 @@
-import * as React from 'react';
-import {useSelector, useDispatch} from 'react-redux'
-import PropTypes from 'prop-types';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
-import Divider from '@mui/material/Divider';
-import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
+import * as React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import PropTypes from "prop-types";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import CssBaseline from "@mui/material/CssBaseline";
+import Divider from "@mui/material/Divider";
+import Drawer from "@mui/material/Drawer";
+import IconButton from "@mui/material/IconButton";
 import Button from "@material-ui/core/Button";
-import MenuIcon from '@mui/icons-material/Menu';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
+import MenuIcon from "@mui/icons-material/Menu";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
 
-import SearchBar from '../container/autoComplete'
-import Compare from '../component/compare'
-import DetailPage from '../component/DetailPage'
-import UnivList from '../container/univList';
+import SearchBar from "../container/autoComplete";
+import Compare from "../component/compare";
+import DetailPage from "../component/DetailPage";
+import UnivList from "../container/univList";
 
-import {
-  BrowserRouter as Router,
-  Switch, Route, Link
-} from "react-router-dom";
-
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function ResponsiveDrawer(props) {
-  const { window} = props;
+  const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  
-
 
   const drawerWidth = 350;
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
-  const state = useSelector(state => state.univeList.univList)
+  const state = useSelector((state) => state.univeList.univList);
 
-  React.useEffect(() => {
-
-  }, )
+  React.useEffect(() => {});
 
   const drawer = (
     <div>
-    <Toolbar style={{backgroundColor:"white"}}> PROUAS</Toolbar>
+      <Toolbar style={{ backgroundColor: "white" }}> PROUAS</Toolbar>
       <Divider />
       <UnivList />
     </div>
   );
 
-  const container = window !== undefined ? () => window().document.body : undefined;
+  const container =
+    window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar style={{backgroundColor:"white",paddingTop:"15px", paddingBottom:"15px"}} 
+      <AppBar
+        style={{
+          backgroundColor: "white",
+          paddingTop: "15px",
+          paddingBottom: "15px",
+        }}
         position="fixed"
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
         }}
       >
-        <Toolbar >
+        <Toolbar>
           <IconButton
             color="inherit"
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
-            style={{color:"black"}}
+            sx={{ mr: 2, display: { sm: "none" } }}
+            style={{ color: "black" }}
           >
             <MenuIcon />
           </IconButton>
@@ -76,7 +74,6 @@ function ResponsiveDrawer(props) {
       <Box
         component="nav"
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
-     
       >
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Drawer
@@ -88,8 +85,11 @@ function ResponsiveDrawer(props) {
             keepMounted: true, // Better open performance on mobile.
           }}
           sx={{
-            display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+            display: { xs: "block", sm: "none" },
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: drawerWidth,
+            },
           }}
         >
           {drawer}
@@ -97,8 +97,11 @@ function ResponsiveDrawer(props) {
         <Drawer
           variant="permanent"
           sx={{
-            display: { xs: 'none', sm: 'block' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+            display: { xs: "none", sm: "block" },
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: drawerWidth,
+            },
           }}
           open
         >
@@ -106,15 +109,12 @@ function ResponsiveDrawer(props) {
         </Drawer>
       </Box>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-      <Toolbar />  
+        <Toolbar />
 
-          <Switch>
+        <Switch>
           <Route path="/uas/:id" component={DetailPage} />
           <Route path="/" exact component={Compare} />
         </Switch>
-
-    
-      
       </Box>
     </Box>
   );

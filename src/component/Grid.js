@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 import ListSubheader from "@mui/material/ListSubheader";
 import List from "@mui/material/List";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -25,15 +25,19 @@ const MainGrid = ({ univ }) => {
         <ListItemText />
         {open ? <ExpandLess /> : <ExpandMore />}
       </ListItemButton>
-     {univ.studypath.map((i)=> 
-     <Collapse in={open} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-          <ListItemButton  component={Link}  to={`/uas/${i.studyPathId}`}sx={{ pl: 9 }}>
-           {i.name}
-   
-          </ListItemButton>
-        </List>
-      </Collapse>)}
+      {univ.studypath.map((i) => (
+        <Collapse in={open} timeout="auto" unmountOnExit>
+          <List component="div" disablePadding>
+            <ListItemButton
+              component={Link}
+              to={`/uas/${i.studyPathId}`}
+              sx={{ pl: 9 }}
+            >
+              {i.name}
+            </ListItemButton>
+          </List>
+        </Collapse>
+      ))}
     </List>
   );
 };
