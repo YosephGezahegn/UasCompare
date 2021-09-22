@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { SET_SELECTED_ITEM } from "../actions/index";
-import { useDispatch } from "react-redux";
+
 
 import axios from "axios";
 import SearchComp from "../component/Search";
 
 
 const SearchBar = () => {
-  const dispatch = useDispatch();
+
 
   const fetchProgListSucess = () => {
     return (dispatch) => {
@@ -23,7 +23,7 @@ const SearchBar = () => {
   };
 
   useEffect(() => {
-    dispatch(fetchProgListSucess());
+    fetchProgListSucess()
   }, []);
 
   return (

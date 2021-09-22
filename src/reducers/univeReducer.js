@@ -14,7 +14,7 @@ export const initialstate = {
   studyPrograms: [],
   fetchedID:[],
 };
-export default function (state = initialstate, action) {
+export default function reducer (state = initialstate, action) {
   switch (action.type) {
     case FETCH_UNIV_REQ:
       return {

@@ -1,5 +1,4 @@
 import * as React from "react";
-import { useSelector, useDispatch } from "react-redux";
 import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -7,17 +6,17 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
-import Button from "@material-ui/core/Button";
+
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
+
 
 import SearchBar from "../container/autoComplete";
 import Compare from "../component/compare";
 import DetailPage from "../component/DetailPage";
 import UnivList from "../container/univList";
 
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 
 function ResponsiveDrawer(props) {
   const { window } = props;
@@ -27,7 +26,7 @@ function ResponsiveDrawer(props) {
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
-  const state = useSelector((state) => state.univeList.univList);
+
 
   React.useEffect(() => {});
 
