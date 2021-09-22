@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { SET_SELECTED_ITEM } from "../actions/index";
 
 
@@ -7,7 +8,7 @@ import SearchComp from "../component/Search";
 
 
 const SearchBar = () => {
-
+  const dispatch = useDispatch();
 
   const fetchProgListSucess = () => {
     return (dispatch) => {
@@ -23,7 +24,8 @@ const SearchBar = () => {
   };
 
   useEffect(() => {
-    fetchProgListSucess()
+    dispatch(fetchProgListSucess());
+    
   }, []);
 
   return (
